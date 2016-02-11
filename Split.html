@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>-->
+    <script src="jquery-1.12.0.min.js"></script>
+    <script src="jquery.sticky.js"></script>
+    <script src="underscore-min.js"></script>
+
+    <title>Split</title>
+</head>
+<body>
+    <div class="header">
+        <div class="menu-item main selected">Main</div>
+        <div class="menu-item parents">Parent entities</div>
+        <div class="menu-item assignments">Assignments</div>
+        <div class="menu-item tasks">Tasks</div>
+        <div class="menu-item relations">Relations</div>
+        <button class="save-button">Save both entities</button>
+    </div>
+    <div class="image">
+        <img src="form.png" />
+    </div>
+    <script>
+        $('.header').sticky({topSpacing:0});
+        var positions = [
+            {name:'main', top:-100, bottom:599},
+            {name:'parents',top:600, bottom:1039},
+            {name:'assignments', top:1040, bottom:1449},
+            {name:'tasks', top:1450, bottom:1699},
+            {name:'relations', top:1700, bottom:1701}
+        ];
+
+        var selectedMenuClass = 'selected';
+
+        positions.forEach(function(p){
+            var menuItem = $('.'+ p.name);
+
+            menuItem.click(function() {
+                $('.menu-item').removeClass(selectedMenuClass);
+                menuItem.addClass(selectedMenuClass);
+                $(document).scrollTop(p.top);
+        })});
+
+        $('.save-button').click();
+
+        $(document).scroll(function () {
+            positions.forEach(function (p) {
+                $('.' + p.name).toggleClass(selectedMenuClass, document.body.scrollTop >= p.top && document.body.scrollTop < p.bottom);
+            });
+        });
+    </script>
+</body>
+</html>

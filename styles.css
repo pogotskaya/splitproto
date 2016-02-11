@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    background: rgba(117, 183, 255, 0.8);
+    padding: 8px;
+    font: normal 13px Arial;
+}
+
+.save-button {
+    display: inline-block;
+    margin-left: 410px;
+    cursor: pointer;
+
+   color: #fff;
+   font: normal 13px Arial;
+   background: #7ca843 ;
+   background-image: linear-gradient(-180deg, #a1c94b  0%, #7ca843  100%);
+   border: solid 1px #699836;
+   vertical-align: middle;
+   padding: 3px 9px 5px 9px;
+   border-radius: 3px;
+   height: 24px;
+   line-height: 16px;
+   box-shadow: none;
+}
+
+.menu-item {
+    display: inline-block;
+    margin:10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.menu-item.selected {
+    background: #fff;
+}
