@@ -37,3 +37,8 @@
 .menu-item.selected {
     background: #fff;
 }
+
+.wrapper, .image {
+    width: 1000px;
+    margin: 0 auto;
+}
